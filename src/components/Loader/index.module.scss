@@ -1,0 +1,111 @@
+.loaderContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.loaderWrapper {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  gap: 18px;
+  padding: 32px 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  & .loaderItemWrapper:nth-of-type(2) {
+    & .loader {
+      animation-delay: 150ms;
+    }
+    & .loaderColor {
+      animation-delay: 150ms, 150ms;
+    }
+  }
+
+  & .loaderItemWrapper:nth-of-type(3) {
+    & .loader {
+      animation-delay: 300ms;
+    }
+    & .loaderColor {
+      animation-delay: 300ms, 150ms;
+    }
+  }
+
+  &:hover {
+    .loader {
+      opacity: 0;
+    }
+    .loaderColor {
+      opacity: 1;
+    }
+  }
+}
+
+.loaderItemWrapper {
+  position: relative;
+}
+
+.loader {
+  width: 8px;
+  height: 8px;
+  background-color: #141414;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: opacity 500ms linear;
+  animation: animLoader 1804ms linear infinite;
+}
+
+@keyframes animLoader {
+  0%,
+  42%,
+  76%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: translateY(40%) scaleY(0.5);
+  }
+  59% {
+    transform: translateY(-270%) scaleX(0.4);
+  }
+  67% {
+    transform: translateY(60%) scaleY(0.25);
+  }
+}
+
+.loaderColor {
+  @extend .loader;
+  opacity: 0;
+  animation:
+    animLoader 1804ms linear infinite,
+    animLoaderHover 3750ms linear 150ms infinite;
+}
+
+@keyframes animLoaderHover {
+  0%,
+  100% {
+    background-color: #e57373;
+  }
+  17% {
+    background-color: #ffd54f;
+  }
+  33% {
+    background-color: #81c784;
+  }
+  50% {
+    background-color: #64b5f6;
+  }
+  67% {
+    background-color: #7986cb;
+  }
+  83% {
+    background-color: #ba68c8;
+  }
+}

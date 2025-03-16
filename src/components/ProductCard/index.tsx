@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import ProductInfo from '../ProductInfo';
-import { Size } from '@/types/types';
+import { Size, ImageProps } from '@/types/types';
 import styles from './index.module.scss';
-import { ImageProps } from '../../redux/types';
 
 export interface ProductCardProps {
   productId: string;
@@ -28,7 +27,7 @@ const ProductCard: FC<ProductCardProps> = ({
   return (
     <div className={styles.productCard}>
       <Link to={`/product/${productId}`}>
-        <img src={image?.url} alt={productName} className={styles.image} />        
+        <img src={image?.url} alt={productName} className={styles.image} />
       </Link>
       <ProductInfo
         productId={productId}

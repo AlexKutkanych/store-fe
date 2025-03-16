@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useMemo } from 'react';
-import { getValidClassNames } from '@/helpers';
+import { getValidClassNames } from '@/helpers/getValidClassNames';
 import { Color, Size } from '@/types/types';
 import CrossIcon from '/public/icons/Cross';
 import SizeSelector from '../SizeSelector';

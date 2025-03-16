@@ -1,6 +1,6 @@
 import React from 'react';
 import NewsletterDescription from '@/components/NewsletterDescription';
-import Input from '@/modules/core/components/Input';
+import Input from '@/components/Input';
 import ArrowButton from '/public/icons/ArrowButton';
 import Email from '/public/icons/Email';
 import styles from './index.module.scss';

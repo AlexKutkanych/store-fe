@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import MainMenu from '../MainMenu';
 import ActionPanel from '../ActionPanel';
-import Input from '@/modules/core/components/Input';
+import Input from '@/components/Input';
 import logo from '/icons/logo.svg';
 import Search from '/public/icons/Search';
 import MenuIcon from '/public/icons/Menu';

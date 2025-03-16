@@ -1,5 +1,5 @@
-import ManCollection1 from '@/assets/images/collection-man-image-1.png';
-import ManCollection2 from '@/assets/images/colection-man-image-2.png';
+import ManCollection1 from '/images/collection-man-image-1.png';
+import ManCollection2 from '/images/colection-man-image-2.png';
 import { CollectionCardProps } from './types';
 
 export const collections: CollectionCardProps[] = [

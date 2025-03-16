@@ -1,7 +1,7 @@
 import React, { FC, InputHTMLAttributes, ReactElement, useMemo } from 'react';
 import { FieldErrors, UseFormRegister, Validate } from 'react-hook-form';
 import clsx from 'clsx';
-import { PersonalDataForm } from '@/modules/order/components/PersonalData';
+import { PersonalDataForm } from '@/components/PersonalData';
 import styles from './index.module.scss';
 
 type PersonalDataNames = keyof PersonalDataForm;

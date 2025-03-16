@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { getValidClassNames } from '@/helpers';
+import {getValidClassNames} from '@/helpers/getValidClassNames';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import styles from './index.module.scss';

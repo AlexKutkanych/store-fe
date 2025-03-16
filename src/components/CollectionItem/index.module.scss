@@ -1,0 +1,70 @@
+@import '@/styles/constants';
+
+.itemsWrapper {
+  position: relative;
+
+  @include media(tablet) {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.image {
+  width: 100%;
+  max-height: 856px;
+}
+
+.text {
+  width: 100%;
+  position: absolute;
+  top: calc(50% - 42px);
+  z-index: 1;
+  color: $brilliance;
+  text-align: center;
+  text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.25);
+  font-family: $font-family-main;
+  font-size: 72px;
+  line-height: 84px;
+  text-transform: uppercase;
+
+  @include media(tablet) {
+    max-width: 290px;
+    font-size: 40px;
+    line-height: 50px;
+  }
+}
+
+.wrapperButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  top: calc(50% + 125px);
+
+  @include media(tablet) {
+    top: calc(50% + 100px);
+  }
+}
+
+.button {
+  border-radius: 4px;
+  background: $brilliance;
+  display: flex;
+  width: 200px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  color: #212121;
+  font-family: $font-family-main;
+  font-size: 20px;
+  letter-spacing: 0.2px;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #212121;
+    color: $brilliance;
+  }
+}

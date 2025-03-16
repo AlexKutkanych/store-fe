@@ -2,12 +2,7 @@ import React, { useState, FC, JSX } from 'react';
 import ProductInfoParameters from '../ProductInfoParameters';
 import AddToCartButton from '../AddToCartButton';
 import ProductPrice from '../ProductPrice';
-import { useAppDispatch, useAppSelector } from '@/hooks';
 import { Size, Color } from '@/types/types';
-import {
-  selectQuantityByProductId,
-  actions as shoppingCartActions,
-} from '@/redux/slices/shopping-cart';
 import styles from './index.module.scss';
 
 interface ProductInfo {
@@ -30,9 +25,10 @@ const ProductInfo: FC<ProductInfo> = ({
   const [selectedColor, setSelectedColor] = useState<Color>(Color.Black);
   const [selectedSize, setSelectedSize] = useState<Size | null>(null);
   const [error, setError] = useState<string | undefined>();
-  const dispatch = useAppDispatch();
-  const existingProductQuantity =
-    useAppSelector((state) => selectQuantityByProductId(state, productId)) ?? 0;
+  // const existingProductQuantity =
+  //   useAppSelector((state) => selectQuantityByProductId(state, productId)) ?? 0;
+
+  const existingProductQuantity = 0;
 
   const changeParameters = (parameter: string, value: string): void => {
     switch (parameter) {
@@ -64,17 +60,17 @@ const ProductInfo: FC<ProductInfo> = ({
 
     setError('');
 
-    dispatch(
-      shoppingCartActions.addItem({
-        id: productId,
-        price,
-        title: productName,
-        vendorCode,
-        colour: selectedColor,
-        size: selectedSize,
-        count: quantity,
-      })
-    );
+    // dispatch(
+    //   shoppingCartActions.addItem({
+    //     id: productId,
+    //     price,
+    //     title: productName,
+    //     vendorCode,
+    //     colour: selectedColor,
+    //     size: selectedSize,
+    //     count: quantity,
+    //   })
+    // );
 
     console.log('product:', {
       id: productId,

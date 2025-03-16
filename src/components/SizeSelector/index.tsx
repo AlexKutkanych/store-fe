@@ -1,6 +1,6 @@
 import React, { FC, useCallback } from 'react';
 import { Size } from '@/types/types';
-import { getValidClassNames } from '@/helpers';
+import {getValidClassNames} from '@/helpers/getValidClassNames';
 import styles from './index.module.scss';
 
 export interface SizeSelectorProps {

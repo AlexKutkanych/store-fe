@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 
-import Accordion from '../../modules/core/components/AccordionFooter/Accordion';
+import Accordion from '@/components/AccordionFooter/Accordion';
 import { menuName, listContent } from '../Footer/footerData';
 import styles from './index.module.scss';
 import { MenuItem, MenuList } from '../../types/types';

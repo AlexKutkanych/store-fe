@@ -1,0 +1,81 @@
+@import '@/styles/constants';
+
+.buttonBox {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+}
+
+.image {
+  height: 100%;
+}
+
+.color,
+.chosenColor {
+  position: relative;
+  height: 121px;
+  width: max-content;
+
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+  cursor: pointer;
+}
+
+.color {
+  border: 1px solid $pageBackground;
+  cursor: pointer;
+}
+
+.chosenColor {
+  border-radius: 5px;
+  border: 1px solid $grayDark;
+}
+
+.multiColor:first-child {
+  margin-right: 15px;
+}
+
+.Black,
+.Beige {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+}
+
+.Black {
+  background-color: $blackColor;
+}
+
+.Beige {
+  background-color: $cream;
+}
+
+.check,
+.hide {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: $greenMint;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.multiColor,
+.color,
+.chosenColor {
+  cursor: pointer;
+}
+
+.colorName {
+  font-family: $font-family-main;
+  position: absolute;
+  bottom: -25px;
+  left: 20px;
+  font-size: 20px;
+}

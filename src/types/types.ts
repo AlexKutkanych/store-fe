@@ -1,5 +1,5 @@
-import BlackColor from '@/assets/images/chooseColor/black.png';
-import WhiteColor from '@/assets/images/chooseColor/white.png';
+import BlackColor from '/images/black.png';
+import WhiteColor from '/images/white.png';
 
 export enum Size {
   XS = 'XS',
@@ -95,3 +95,57 @@ export type Image = {
   link: string;
   alt: string;
 };
+
+export interface GetProductsWithImagesProps {
+  products: ProductProps[];
+  images: ImageProps[];
+  pages?: number;
+  error?: boolean;
+}
+
+export interface ImageItemProps {
+  id: string;
+  name: string;
+  url: string;
+}
+
+export interface ImageProps {
+  id: string;
+  images: ImageItemProps[];
+}
+
+export interface ProductProps {
+  id: string;
+  title: string;
+  price: string;
+  size: Size[];
+  category: string;
+  subcategory: Subcategory;
+  colour: string;
+  description: string;
+  composition: string;
+  brand: string;
+  collection: string;
+  manufacturer: string;
+  files: string[];
+  quantity: number;
+  vendorCode: number;
+}
+
+export type BodyFilterProducts = {
+  colours: string[] | [];
+  sizes: Size[] | [];
+  priceRange: {
+    min: number;
+    max: number;
+  };
+};
+
+export interface SearchProductsProps {
+  page: number;
+  size: number;
+  isFilter?: boolean;
+  isNewNow?: boolean;
+  sortBy?: string;
+  body?: BodySearchProducts | BodyFilterProducts;
+}

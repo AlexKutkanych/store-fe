@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 
 import { useParams } from 'react-router-dom';
 import { FIRST_PAGE, SIMILAR_PRODUCTS_SIZE } from '@/utils/constants';
-import ProductsGridShort from '@/modules/product/components/ProductsGridShort';
+import ProductsGridShort from '@/components/ProductsGridShort';
 import { useLocalStorage } from '@/hooks';
 import styles from './index.module.scss';
 

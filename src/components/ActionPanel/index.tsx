@@ -1,15 +1,11 @@
 import React from 'react';
-import { useAppSelector, useClearCartEffect } from '@/hooks';
-import { selectTotalQuantity } from '@/redux/slices/shopping-cart';
 import User from '/public/icons/User';
 import Search from '/public/icons/Search';
 import AddToCartButton from '../AddToCartButton';
 import styles from './index.module.scss';
 
 const ActionPanel = (): JSX.Element => {
-  const quantity = useAppSelector(selectTotalQuantity);
-
-  useClearCartEffect(quantity);
+  const quantity = 0;
 
   return (
     <>

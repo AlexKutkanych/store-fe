@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import ColorSelection from '../../modules/product/components/ColorSelection';
+import ColorSelection from '@/components/ColorSelection';
 import SizeSelector from '../SizeSelector';
 import ProductPrice from '../ProductPrice';
 import { Size, Color, clothesColors } from '@/types/types';

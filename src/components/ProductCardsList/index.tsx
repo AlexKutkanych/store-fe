@@ -1,9 +1,12 @@
 import React, { FC } from 'react';
-import { GetProductsWithImagesProps } from '@redux/types';
-import { useGetViewportWidth } from '@/hooks';
+import useGetViewportWidth from '@/hooks/useGetViewportWidth';
 import { ViewportWidth } from '@/utils/constants';
 import styles from './index.module.scss';
-import { ImageProps, ProductProps } from '../../redux/types';
+import {
+  ImageProps,
+  ProductProps,
+  GetProductsWithImagesProps,
+} from '@/types/types';
 import ProductCard from '../ProductCard';
 
 interface ProductsGridShortProps {
@@ -18,7 +21,7 @@ const ProductCardsList: FC<ProductsGridShortProps> = ({
 }) => {
   const isMobile = useGetViewportWidth(ViewportWidth.TABLET);
 
-  console.log(searchProducts)
+  console.log(searchProducts);
 
   return searchProducts?.products?.length > 0 ? (
     <div className={styles.wrapper}>
