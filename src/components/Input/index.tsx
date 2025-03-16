@@ -4,7 +4,7 @@ import styles from './index.module.scss';
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   Icon?: string;
   errorText?: string;
-  wrapperClass?: string;
+  label?: string;
   labelCheckbox?: string;
 }
 
@@ -12,6 +12,7 @@ const Input: FC<InputProps> = ({
   placeholder,
   Icon,
   errorText,
+  label,
   onChange,
   ...rest
 }) => {
@@ -24,12 +25,15 @@ const Input: FC<InputProps> = ({
       }`}
     >
       {Icon ? <span className={styles.icon}>{Icon}</span> : null}
-      <input
-        placeholder={placeholder}
-        className={styles.input}
-        onChange={onChange}
-        {...rest}
-      />
+      <div className={styles.inputBox}>
+        <input
+          placeholder={placeholder}
+          className={styles.input}
+          onChange={onChange}
+          {...rest}
+        />
+        {label ? <label className={styles.inputLabel}>{label}</label> : null}
+      </div>
       {errorText ? (
         <label className={styles.inputError}>{errorText}</label>
       ) : null}

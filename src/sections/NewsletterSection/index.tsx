@@ -30,7 +30,7 @@ const NewsletterSection = () => (
       </div>
       <Input
         type='checkbox'
-        text='I accept the Privacy Policy'
+        label='I accept the Privacy Policy'
         className={styles.checkbox}
       />
     </form>
