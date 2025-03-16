@@ -12,8 +12,6 @@ import styles from './index.module.scss';
 const Header = (): JSX.Element => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  console.log(Search, 'Search');
-
   const location = useLocation();
   const isProductsGridPage = /\/(men|women|children)\/products-grid/.test(
     location.pathname
