@@ -1,0 +1,31 @@
+@import '@/styles/constants';
+
+.wrapper {
+  @include media(laptopUp) {
+    margin-right: 40px;
+  }
+}
+
+.spanText {
+  color: $textPrimary;
+  font-family: $font-family-main;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 40px;
+
+  @include media(laptopUp) {
+    white-space: nowrap;
+  }
+}
+
+.mainText {
+  color: $textPrimary;
+  font-family: $font-family-main;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 40px;
+
+  @include tabletOnly {
+    display: block;
+  }
+}

@@ -1,0 +1,52 @@
+@import '@/styles/constants';
+
+.toggleParameter {
+  display: flex;
+  align-items: center;
+  height: 18px;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.parametersBtn {
+  display: flex;
+  width: auto;
+  font-family: $font-family-main;
+  font-size: 14px;
+  margin-right: 40px;
+  color: $grayDark;
+  cursor: pointer;
+}
+
+.parameterBox {
+  display: flex;
+}
+
+.parameterColorBtn {
+  padding: 2px;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+
+.active {
+  border-radius: 4px;
+  padding: 2px;
+  border: 0.5px solid $blackColor;
+}
+
+.crossBtn {
+  width: 16px;
+  cursor: pointer;
+}
+.crossImg {
+  width: 8px;
+}
+
+.hide {
+  display: none;
+}

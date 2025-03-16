@@ -1,0 +1,41 @@
+@import '@/styles/constants';
+
+.collectionWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+
+  @include media(tablet) {
+    flex-direction: column;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  height: 53px;
+  color: $blackColor;
+  font-family: $font-family-main;
+  font-size: 32px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    color: $grayLight;
+  }
+
+  @include media(tablet) {
+    margin: 0px 0px 16px 0px;
+  }
+
+  @include media(laptop) {
+    margin: 0px 0px 16px 0px;
+  }
+}

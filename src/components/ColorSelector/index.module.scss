@@ -1,0 +1,33 @@
+@import '@/styles/constants.scss';
+
+.parameterColorBtn {
+  padding: 2px;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+
+  &.active {
+    border-radius: 4px;
+    padding: 2px;
+    border: 0.5px solid $blackColor;
+  }
+}
+
+.blackColor,
+.whiteColor {
+  display: block;
+  padding: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+}
+
+.blackColor {
+  background-color: $blackColor;
+}
+
+.whiteColor {
+  background-color: $cream;
+}

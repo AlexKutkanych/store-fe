@@ -1,0 +1,73 @@
+@import '@/styles/constants';
+
+.social {
+  display: flex;
+  margin-bottom: 32px;
+
+  @include media(tablet) {
+    text-align: center;
+    order: 2;
+    margin-bottom: 0;
+    margin-top: 17px;
+  }
+}
+
+.socialBtn {
+  width: 32px;
+  height: 32px;
+  margin-right: 16px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.language {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.info {
+  @include media(tablet) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.infoBox,
+.infoBtn {
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.infoBox {
+  margin-bottom: 8px;
+}
+
+.img {
+  position: relative;
+  top: -6px;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.number {
+  margin-right: 8px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.active {
+  font-size: 14px;
+  color: #00ca8d;
+}
+
+.workDays {
+  font-size: 12px;
+  color: $grayLight;
+
+  @include media(tablet) {
+    margin-bottom: 15px;
+  }
+}

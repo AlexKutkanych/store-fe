@@ -1,0 +1,14 @@
+@import '@/styles/constants';
+
+.productCard {
+  width: calc((100% - 16px) / 3);
+  @include media(tablet) {
+    width: calc((100% - 8px) / 2);
+    margin-bottom: 8px;
+  }
+}
+
+.image {
+  width: 100%;
+  margin-bottom: 10px;
+}

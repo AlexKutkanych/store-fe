@@ -1,0 +1,13 @@
+@import '@/styles/constants';
+
+.wrapperSections {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 80px;
+  width: 100%;
+
+  @include media($tablet) {
+    gap: 32px;
+  }
+}

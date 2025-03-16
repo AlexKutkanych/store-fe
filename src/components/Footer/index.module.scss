@@ -1,0 +1,60 @@
+@import '@/styles/constants';
+
+.footer {
+  margin: 0px 0px 32px;
+  width: calc(100% - 160px);
+  max-width: $max-content-width;
+  @include media(laptop) {
+    width: calc(100% - 120px);
+    margin: 0 32px 32px;
+  }
+  @include media(laptopMedium) {
+    width: calc(100% - 80px);
+  }
+  @include media(mobile) {
+    width: calc(100% - 64px);
+    margin-top: 32px;
+  }
+}
+
+.shadowBorder {
+  width: 100%;
+  border: 1px solid #ccc;
+
+  @include media(laptopUp) {
+    box-shadow: 0px 4px 4px 0px #00000026;
+  }
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 32px;
+  margin-bottom: 75px;
+
+  @include media(tablet) {
+    flex-direction: column;
+    margin-bottom: 16px;
+  }
+}
+
+.columnDesktop {
+  @include media(tablet) {
+    display: none;
+  }
+}
+
+.columnMobile {
+  margin-top: 20px;
+
+  @include media(laptopUp) {
+    display: none;
+  }
+}
+
+.info {
+  @include media(tablet) {
+    display: flex;
+    flex-direction: column;
+  }
+}

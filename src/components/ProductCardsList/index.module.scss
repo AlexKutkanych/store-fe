@@ -1,0 +1,24 @@
+@import '@/styles/constants';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cardsWrapperMobile {
+  @extend .cardsWrapper;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  align-self: flex-start;
+}

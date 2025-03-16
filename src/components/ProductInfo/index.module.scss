@@ -1,0 +1,38 @@
+@import '@/styles/constants';
+
+.info {
+  display: flex;
+  flex-direction: column ;
+  justify-content: space-between;
+  row-gap: 10px;
+}
+
+.nameBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.productName {
+  width: 100%;
+  font-size: 16px;
+  letter-spacing: 0rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.price {
+  text-align: left;
+  margin-bottom: 10px;
+  @include media(tablet) {
+    margin-bottom: 0;
+  }
+}
+
+.shoppingCartWrapper,
+.productInfoParametersWrapper {
+  @include media(tablet) {
+    display: none;
+  }
+}

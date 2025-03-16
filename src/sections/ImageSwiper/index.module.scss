@@ -1,0 +1,101 @@
+@import '@/styles/constants';
+
+.swiper {
+  & > div {
+    margin: 0px auto;
+    max-width: 1280px;
+  }
+
+  @include media(tablet) {
+    margin: 0px 32px;
+  }
+}
+
+.image {
+  max-height: 855px;
+
+  @include laptopOnly {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.itemsWrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.bullet {
+  display: inline-block;
+  text-align: center;
+  width: 8px;
+  height: 8px;
+  border-radius: 1px;
+  border: 2px solid rgba(253, 253, 253, 0.5);
+  margin: 0px 12px 18px 0px;
+}
+
+.bulletActive {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  background: $brilliance;
+  margin: 0px 12px 14px 0px;
+}
+
+.text {
+  color: $brilliance;
+  text-align: center;
+  text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.25);
+  font-family: $font-family-main;
+  font-size: 72px;
+  line-height: 84px;
+  text-transform: uppercase;
+  width: 100%;
+  position: absolute;
+  top: calc(50% - 42px);
+
+  @include media(tablet) {
+    max-width: 284px;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 48px;
+  }
+}
+
+.wrapperButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  top: calc(50% + 62px);
+
+  @include media(tablet) {
+    top: calc(50% + 92px);
+  }
+}
+
+.button {
+  border-radius: 4px;
+  background: $brilliance;
+  display: flex;
+  width: 200px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  color: #212121;
+  font-family: $font-family-main;
+  font-size: 20px;
+  letter-spacing: 0.2px;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #212121;
+    color: $brilliance;
+  }
+}

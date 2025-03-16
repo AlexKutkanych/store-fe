@@ -1,0 +1,172 @@
+@import '@/styles/constants';
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  z-index: 100;
+  width: 100%;
+  background-color: $pageBackground;
+  @include media(tablet) {
+    flex-direction: column;
+  }
+}
+
+.logoContainer {
+  padding: 60px 0;
+}
+
+.logoBox {
+  padding: 45px 0;
+}
+
+.headerContainer,
+.checkoutHeader {
+  width: calc(100% - 160px);
+  @include media(laptop) {
+    width: calc(100% - 120px);
+  }
+  @include media(laptopMedium) {
+    width: calc(100% - 80px);
+  }
+  @include media(tablet) {
+    min-height: 90px;
+  }
+  @include media(mobile) {
+    width: calc(100% - 64px);
+  }
+}
+
+.headerWrapper,
+.headerWrapperHomePage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 84px;
+  max-width: $max-content-width;
+  margin: 18px 0px;
+}
+
+.headerWrapper {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  @include media(tablet) {
+    margin-top: 48px;
+    margin-bottom: 0px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 18px 0;
+    max-width: 1280px;
+    min-height: 84px;
+    position: relative;
+  }
+}
+
+.wrapperMenu {
+  @include media(tablet) {
+    display: none;
+  }
+}
+
+.wrapperMenuMobile,
+.wrapperMenuMobileGrid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 50px;
+  margin-bottom: 16px;
+  @include media(laptopUp) {
+    display: none;
+  }
+}
+
+.wrapperMenuMobileGrid {
+  justify-content: left;
+}
+
+.headerWrapperHomePage {
+  justify-content: center;
+}
+
+.invisible {
+  display: none;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: block;
+  width: 133px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include media(tablet) {
+    width: 111px;
+  }
+}
+
+.userBox,
+.userBoxGrid {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  height: 40px;
+  @include media(laptop) {
+    gap: 28px;
+  }
+  @include media(laptopMedium) {
+    gap: 16px;
+  }
+}
+
+.userBoxGrid {
+  @include media(tablet) {
+    display: none;
+  }
+}
+
+.wrapperInput,
+.wrapperInputGrid {
+  width: 100%;
+
+  @include media(laptopUp) {
+    display: none;
+  }
+}
+
+.wrapperInputGrid {
+  width: calc(100% - 45px);
+}
+
+.inputIcon {
+  width: 32px;
+  z-index: 20;
+}
+
+.inputMobile {
+  position: relative;
+  width: 100%;
+  height: 48px;
+  padding-left: 55px;
+
+  &::placeholder {
+    font-family: $font-family-main;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    text-align: left;
+  }
+}
+
+.menuIconMobile {
+  width: 32px;
+
+  @include media(laptopUp) {
+    display: none;
+  }
+}

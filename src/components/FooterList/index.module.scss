@@ -1,0 +1,29 @@
+@import '@/styles/constants';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  @include media(tablet) {
+    max-height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: all 200ms ease-in;
+  }
+}
+
+.listOpen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-bottom: 0;
+  max-height: 220px;
+  transition: all 200ms ease;
+}
+
+.link {
+  font-size: 14px;
+  color: $textPrimary;
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
