@@ -9,7 +9,9 @@ const CardProducts = (): JSX.Element => {
     queryFn: getNewProducts,
   });
 
-  return <ProductCardsList title='New now' searchProducts={data} />;
+  return (
+    <ProductCardsList title='New now' searchProducts={data} />
+  );
 };
 
 export default CardProducts;

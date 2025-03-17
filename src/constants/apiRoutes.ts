@@ -11,6 +11,7 @@ const AUTH_API_ROUTES = {
 
 const PRODUCT_API_ROUTES = {
   GET_NEW: `${PRODUCT_BASE_URL}/new`,
+  SEARCH: `${PRODUCT_BASE_URL}/search`,
 };
 
 const USER_API_ROUTES = {

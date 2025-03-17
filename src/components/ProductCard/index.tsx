@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import ProductInfo from '../ProductInfo';
-import { Size, ImageProps } from '@/types/types';
+import { Size, ImageItemProps } from '@/types/types';
 import styles from './index.module.scss';
 
 export interface ProductCardProps {
@@ -9,7 +9,7 @@ export interface ProductCardProps {
   productName: string;
   price?: string;
   sizes?: Size[];
-  image: ImageProps;
+  images: ImageItemProps[];
   quantity: number;
   vendorCode?: number;
 }
@@ -19,7 +19,7 @@ const ProductCard: FC<ProductCardProps> = ({
   price,
   productName,
   sizes,
-  image,
+  images,
   quantity,
   vendorCode,
 }): JSX.Element => {
@@ -27,7 +27,11 @@ const ProductCard: FC<ProductCardProps> = ({
   return (
     <div className={styles.productCard}>
       <Link to={`/product/${productId}`}>
-        <img src={image?.url} alt={productName} className={styles.image} />
+        <img
+          src={`${import.meta.env.VITE_APP_API_PATH}/${images[0]?.url}`}
+          alt={productName}
+          className={styles.image}
+        />
       </Link>
       <ProductInfo
         productId={productId}

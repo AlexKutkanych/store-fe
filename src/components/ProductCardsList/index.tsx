@@ -1,47 +1,46 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import useGetViewportWidth from '@/hooks/useGetViewportWidth';
 import { ViewportWidth } from '@/utils/constants';
 import styles from './index.module.scss';
-import {
-  ImageProps,
-  ProductProps,
-  GetProductsWithImagesProps,
-} from '@/types/types';
+import { ProductProps } from '@/types/types';
 import ProductCard from '../ProductCard';
 
 interface ProductsGridShortProps {
-  searchProducts?: GetProductsWithImagesProps;
+  searchProducts?: ProductProps[];
   title: string;
-  isSizeColorShown?: boolean;
 }
 
 const ProductCardsList: FC<ProductsGridShortProps> = ({
-  searchProducts = {} as GetProductsWithImagesProps,
+  searchProducts = [] as ProductProps,
   title,
 }) => {
   const isMobile = useGetViewportWidth(ViewportWidth.TABLET);
 
   console.log(searchProducts);
 
-  return searchProducts?.products?.length > 0 ? (
+  return searchProducts?.length > 0 ? (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>{title}</h2>
       <div
         className={isMobile ? styles.cardsWrapperMobile : styles.cardsWrapper}
       >
-        {searchProducts?.products?.map(
-          ({ id, title, price, size, quantity, vendorCode }: ProductProps) => {
-            const images =
-              searchProducts?.images?.find((item: ImageProps) => item.id === id)
-                ?.images ?? [];
-
+        {searchProducts?.map(
+          ({
+            _id,
+            title,
+            price,
+            size,
+            quantity,
+            vendorCode,
+            images = [],
+          }: ProductProps) => {
             return (
               <ProductCard
-                key={id}
-                productId={id}
+                key={_id}
+                productId={_id}
                 productName={title}
                 price={price}
-                image={images[0]}
+                images={images}
                 sizes={size}
                 quantity={quantity}
                 vendorCode={vendorCode}

@@ -49,23 +49,27 @@ const ProductInfoParameters: FC<ProductInfoParameters> = ({
   return (
     <div className={styles.parameters}>
       {error ? <p className={styles.error}>{error}</p> : null}
-      <ToggleProductInfoParameters
-        parameters={colors}
-        productInfo='color'
-        text={`+${colors.length} ${'colors'}`}
-        index={0}
-        active={activeColor}
-        {...props}
-      />
-      <ToggleProductInfoParameters
-        parameters={defaultSizes}
-        productInfo='size'
-        text={`+${sizes && sizes.length} ${'sizes'}`}
-        index={1}
-        active={activeSize}
-        sizes={sizes}
-        {...props}
-      />
+      {colors?.length ? (
+        <ToggleProductInfoParameters
+          parameters={colors}
+          productInfo='color'
+          text={`+${colors.length} ${'colors'}`}
+          index={0}
+          active={activeColor}
+          {...props}
+        />
+      ) : null}
+      {sizes?.length ? (
+        <ToggleProductInfoParameters
+          parameters={defaultSizes}
+          productInfo='size'
+          text={`+${sizes && sizes.length} ${'sizes'}`}
+          index={1}
+          active={activeSize}
+          sizes={sizes}
+          {...props}
+        />
+      ) : null}
     </div>
   );
 };

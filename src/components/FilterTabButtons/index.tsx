@@ -1,6 +1,6 @@
 import React, { FC, useCallback } from 'react';
 import { filterButtons } from './data';
-import { Category, Subcategory, BodySearchProducts } from '@/types/types';
+import { BodySearchProducts } from '@/types/types';
 import styles from './index.module.scss';
 
 interface FilterTabButtons {
@@ -17,8 +17,8 @@ const FilterTabButtons: FC<FilterTabButtons> = ({
   handleClickFilter,
 }) => {
   const onClick = useCallback(
-    (value: string, body: BodySearchProducts) => () => {
-      handleClick?.(body);
+    (value: string) => () => {
+      handleClick?.(value);
       handleClickFilter?.(value);
       setActiveButton?.(value);
     },
@@ -28,20 +28,12 @@ const FilterTabButtons: FC<FilterTabButtons> = ({
   return (
     <div className={styles.buttonsWrapper}>
       {filterButtons?.map(({ name, value }) => {
-        const body =
-          value === Category.CLOTHING
-            ? {
-                category: value,
-              }
-            : {
-                subcategory: value as Subcategory,
-              };
         return (
           <button
             key={value}
             value={value}
             className={value === activeButton ? styles.active : styles.button}
-            onClick={onClick(value, body)}
+            onClick={onClick(value)}
           >
             {name}
           </button>

@@ -14,20 +14,6 @@ export enum Color {
   Beige = 'Beige',
 }
 
-export enum HeaderMenu {
-  NewNow = 'New now',
-  Clothing = 'Clothing',
-  Suits = 'Suits',
-  ShoesAndAccessories = 'Shoes and accessories',
-  Promotion = 'Promotion',
-  Collections = 'Collections',
-}
-
-export enum Language {
-  English = 'en',
-  Ukrainian = 'ua',
-}
-
 export enum Category {
   CLOTHING = 'CLOTHING',
 }
@@ -41,19 +27,6 @@ export enum Subcategory {
   SWEATERS = 'SWEATERS',
   CARDIGANS = 'CARDIGANS',
   QUILTED = 'QUILTED',
-}
-
-export enum PersonalDataItemId {
-  Number = 'number',
-  FirstName = 'firstName',
-  LastName = 'lastName',
-  Prefix = 'prefix',
-  Email = 'email',
-  Address = 'address',
-  Information = 'information',
-  ZipCode = 'zipCode',
-  City = 'city',
-  State = 'state',
 }
 
 export const clothesColors: Record<Color, string> = {
@@ -83,69 +56,36 @@ export enum Price {
   max = 1000,
 }
 
-export enum FilterItems {
-  NewNow = 'New now',
-  PriceAsc = 'Price low to high',
-  PriceDesc = 'Price high to low',
-  PriceAscRequest = 'asc',
-  PriceDescRequest = 'desc',
-}
-
 export type Image = {
   link: string;
   alt: string;
 };
 
-export interface GetProductsWithImagesProps {
-  products: ProductProps[];
-  images: ImageProps[];
-  pages?: number;
-  error?: boolean;
-}
-
 export interface ImageItemProps {
   id: string;
-  name: string;
   url: string;
+  alt: string;
 }
 
-export interface ImageProps {
+export type ProductProps = {
   id: string;
-  images: ImageItemProps[];
-}
-
-export interface ProductProps {
-  id: string;
-  title: string;
-  price: string;
-  size: Size[];
+  vendorCode: string;
   category: string;
-  subcategory: Subcategory;
-  colour: string;
+  subcategory: string;
+  title: string;
+  color: string;
   description: string;
   composition: string;
+  size: (keyof Size)[];
+  price: number;
   brand: string;
-  collection: string;
+  collection: string | null;
   manufacturer: string;
-  files: string[];
-  quantity: number;
-  vendorCode: number;
-}
-
-export type BodyFilterProducts = {
-  colours: string[] | [];
-  sizes: Size[] | [];
-  priceRange: {
-    min: number;
-    max: number;
+  createdAt: string;
+  updatedAt: string;
+  images: string[];
+  distribution: {
+    [key in Size]: number;
   };
+  quantity: number;
 };
-
-export interface SearchProductsProps {
-  page: number;
-  size: number;
-  isFilter?: boolean;
-  isNewNow?: boolean;
-  sortBy?: string;
-  body?: BodySearchProducts | BodyFilterProducts;
-}
