@@ -2,8 +2,8 @@
 
 .icon {
   position: absolute;
-  z-index: 20;
   left: 16px;
+  top: 11px;
 }
 
 .inputWrapper {
@@ -41,5 +41,6 @@
 
 .inputBox {
   display: flex;
+  justify-content: flex-end;
   column-gap: 5px;
 }
