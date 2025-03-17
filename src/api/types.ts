@@ -11,3 +11,17 @@ export type SearchProductBodyProps = {
   category: Category;
   subcategory?: Subcategory;
 };
+
+type User = {
+  phone: string;
+  email: string;
+  _id: string;
+  __v: number;
+};
+
+export type CreateUserResponseProps = {
+  status: string;
+  message: string;
+  user: User;
+  hasToken: boolean;
+};

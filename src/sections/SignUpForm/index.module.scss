@@ -17,6 +17,10 @@
   font-weight: 600;
 }
 
+.errorMessage {
+  color: $alertRed;
+}
+
 .helpOptions {
   display: flex;
   justify-content: space-between;

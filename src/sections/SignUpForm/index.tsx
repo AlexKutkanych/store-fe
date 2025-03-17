@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, NavigateFunction, useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import Input from '@/components/Input';
 import { createUser } from '@/api/auth';
 import styles from './index.module.scss';
-import { CreateUserBodyProps } from '../../api/types';
+import { CreateUserBodyProps, CreateUserResponseProps } from '../../api/types';
+import { useAuthErrorHandler } from '../../hooks/useAuthErrorHandler';
 
 const SignUpForm = () => {
   const [emailError, setEmailError] = useState(false);
@@ -17,21 +18,25 @@ const SignUpForm = () => {
 
   const navigate = useNavigate();
 
-  const handleSuccessSignUp = (navigate) => (data) => {
+  const { errorMessage, authErrorHandler } = useAuthErrorHandler();
+
+  const handleSuccessSignUp = (navigate: NavigateFunction) => (data: CreateUserResponseProps) => {
     console.log(data, 'data');
     navigate('/');
+
+    localStorage.setItem('user', JSON.stringify(data?.user));
   };
 
-  const mutation = useMutation<unknown, Error, CreateUserBodyProps>({
+  const mutation = useMutation<CreateUserResponseProps, Error, CreateUserBodyProps>({
     mutationFn: createUser,
     onSuccess: handleSuccessSignUp(navigate),
-    // onError: authErrorHandler,
+    onError: authErrorHandler,
   });
 
   const validateInputs = () => {
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
-    const phone = document.getElementById('phone');
+    const email = document.getElementById('email') as HTMLInputElement;
+    const password = document.getElementById('password') as HTMLInputElement;
+    const phone = document.getElementById('phone') as HTMLInputElement;
 
     let isValid = true;
 
@@ -65,7 +70,7 @@ const SignUpForm = () => {
     return isValid;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: { preventDefault: () => void; currentTarget?: HTMLFormElement; }) => {
     event.preventDefault();
     if (phoneError || emailError || passwordError) {
       return;
@@ -77,7 +82,7 @@ const SignUpForm = () => {
       phone: data.get('phone') as string,
       email: data.get('email') as string,
       password: data.get('password') as string,
-      acceptOffers
+      acceptOffers,
     });
   };
 
@@ -85,6 +90,9 @@ const SignUpForm = () => {
     <div className={styles.wrapper}>
       <form className={styles.signUpForm} onSubmit={handleSubmit}>
         <h2 className={styles.title}>Create your account</h2>
+        {errorMessage ? (
+          <p className={styles.errorMessage}>{errorMessage}</p>
+        ) : null}
         <Input
           id='email'
           name='email'

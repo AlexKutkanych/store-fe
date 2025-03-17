@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import User from '/public/icons/User';
 import Search from '/public/icons/Search';
 import AddToCartButton from '../AddToCartButton';
@@ -20,9 +21,9 @@ const ActionPanel = (): JSX.Element => {
         </button>
       </div>
       <div className={styles.userButtons}>
-        <button className={styles.userButton}>
+        <Link className={styles.userButton} to='/sign-up'>
           <User className={styles.userIcon} />
-        </button>
+        </Link>
         <AddToCartButton quantity={quantity} />
       </div>
     </>
