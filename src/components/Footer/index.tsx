@@ -1,4 +1,4 @@
-import React from 'react';
+import { JSX } from 'react';
 import FooterList from '../FooterList';
 import CompanyInfo from '../CompanyInfo';
 import Copyright from '../Copyright';

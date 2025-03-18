@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import useGetViewportWidth from '@/hooks/useGetViewportWidth';
-import { ViewportWidth } from '@/utils/constants';
+import useGetViewportWidth from '../../hooks/useGetViewportWidth';
+import { ViewportWidth } from '../../utils/constants';
 import styles from './index.module.scss';
-import { ProductProps } from '@/types/types';
+import { ProductProps } from '../../types/types';
 import ProductCard from '../ProductCard';
 
 interface ProductsGridShortProps {
@@ -11,12 +11,12 @@ interface ProductsGridShortProps {
 }
 
 const ProductCardsList: FC<ProductsGridShortProps> = ({
-  searchProducts = [] as ProductProps,
+  searchProducts = [],
   title,
 }) => {
   const isMobile = useGetViewportWidth(ViewportWidth.TABLET);
 
-  console.log(searchProducts);
+  console.log(searchProducts, 'searchProducts');
 
   return searchProducts?.length > 0 ? (
     <div className={styles.wrapper}>
@@ -31,7 +31,6 @@ const ProductCardsList: FC<ProductsGridShortProps> = ({
             price,
             size,
             quantity,
-            vendorCode,
             images = [],
           }: ProductProps) => {
             return (
@@ -43,7 +42,6 @@ const ProductCardsList: FC<ProductsGridShortProps> = ({
                 images={images}
                 sizes={size}
                 quantity={quantity}
-                vendorCode={vendorCode}
               />
             );
           }

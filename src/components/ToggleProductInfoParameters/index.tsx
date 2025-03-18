@@ -1,6 +1,7 @@
-import React, { FC, useCallback, useMemo } from 'react';
-import { getValidClassNames } from '@/helpers/getValidClassNames';
-import { Color, Size } from '@/types/types';
+import { FC, useCallback, useMemo, JSX } from 'react';
+import { getValidClassNames } from '../../helpers/getValidClassNames';
+import { Color, Size } from '../../types/types';
+// @ts-expect-error assets
 import CrossIcon from '/public/icons/Cross';
 import SizeSelector from '../SizeSelector';
 import ColorSelector from '../ColorSelector';

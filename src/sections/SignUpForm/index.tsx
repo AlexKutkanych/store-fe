@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link, NavigateFunction, useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
-import Input from '@/components/Input';
-import { createUser } from '@/api/auth';
+import Input from '../../components/Input';
+import { createUser } from '../../api/auth';
 import styles from './index.module.scss';
 import { CreateUserBodyProps, CreateUserResponseProps } from '../../api/types';
 import { useAuthErrorHandler } from '../../hooks/useAuthErrorHandler';
@@ -98,14 +98,12 @@ const SignUpForm = () => {
           name='email'
           type='email'
           placeholder='Email'
-          wrapperClass={styles.inputWrapper}
           errorText={emailErrorMessage}
         />
         <Input
           id='phone'
           name='phone'
           placeholder='Phone'
-          wrapperClass={styles.inputWrapper}
           errorText={phoneErrorMessage}
         />
         <Input
@@ -113,7 +111,6 @@ const SignUpForm = () => {
           name='password'
           type='password'
           placeholder='Password'
-          wrapperClass={styles.inputWrapper}
           errorText={passwordErrorMessage}
         />
         <div className={styles.helpOptions}>

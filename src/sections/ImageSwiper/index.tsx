@@ -1,4 +1,4 @@
-import React, { JSX } from 'react';
+import { JSX } from 'react';
 import { SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import styles from './index.module.scss';

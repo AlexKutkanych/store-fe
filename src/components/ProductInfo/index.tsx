@@ -1,8 +1,8 @@
-import React, { useState, FC, JSX } from 'react';
+import { useState, FC, JSX } from 'react';
 import ProductInfoParameters from '../ProductInfoParameters';
 import AddToCartButton from '../AddToCartButton';
 import ProductPrice from '../ProductPrice';
-import { Size, Color } from '@/types/types';
+import { Size, Color } from '../../types/types';
 import styles from './index.module.scss';
 import { useMutation } from '@tanstack/react-query';
 import { Slide, toast, ToastContainer } from 'react-toastify';
@@ -15,7 +15,6 @@ interface ProductInfo {
   price?: number;
   sizes?: Size[];
   quantity: number;
-  vendorCode?: number;
 }
 
 const ProductInfo: FC<ProductInfo> = ({

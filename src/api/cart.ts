@@ -1,4 +1,4 @@
-import { CART_API_ROUTES } from '@/constants/apiRoutes';
+import { CART_API_ROUTES } from '../constants/apiRoutes';
 import apiClient from './apiClient';
 import { AddToCartBodyProps } from './types';
 

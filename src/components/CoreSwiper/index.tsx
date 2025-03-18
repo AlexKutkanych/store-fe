@@ -1,10 +1,15 @@
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import { Swiper, SwiperProps } from 'swiper/react';
 import { Navigation, EffectFade } from 'swiper/modules';
+// @ts-expect-error assets
 import 'swiper/scss';
+// @ts-expect-error assets
 import 'swiper/scss/navigation';
+// @ts-expect-error assets
 import 'swiper/scss/pagination';
+// @ts-expect-error assets
 import 'swiper/scss/autoplay';
+// @ts-expect-error assets
 import 'swiper/scss/effect-fade';
 
 export type CoreSwiperProps = {

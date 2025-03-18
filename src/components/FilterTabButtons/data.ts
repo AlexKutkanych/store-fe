@@ -1,8 +1,8 @@
-import { Category, Subcategory, FilterItems } from '@/types/types';
+import { Category, Subcategory } from '../../types/types';
 
 export type ButtonProps = {
   name: string;
-  value: Category | Subcategory | FilterItems;
+  value: Category | Subcategory;
 };
 
 export const filterButtons: ButtonProps[] = [

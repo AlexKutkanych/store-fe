@@ -1,17 +1,16 @@
-import { FC } from 'react';
+import { FC, JSX } from 'react';
 import { Link } from 'react-router-dom';
 import ProductInfo from '../ProductInfo';
-import { Size, ImageItemProps } from '@/types/types';
+import { Size, ImageItemProps } from '../../types/types';
 import styles from './index.module.scss';
 
 export interface ProductCardProps {
   productId: string;
   productName: string;
-  price?: string;
+  price?: number;
   sizes?: Size[];
   images: ImageItemProps[];
   quantity: number;
-  vendorCode?: number;
 }
 
 const ProductCard: FC<ProductCardProps> = ({
@@ -21,14 +20,13 @@ const ProductCard: FC<ProductCardProps> = ({
   sizes,
   images,
   quantity,
-  vendorCode,
 }): JSX.Element => {
-  const productPrice = price ? Number.parseFloat(price) : undefined;
+  const productPrice = price ? Number.parseFloat(String(price)) : undefined;
   return (
     <div className={styles.productCard}>
       <Link to={`/product/${productId}`}>
         <img
-          src={`${import.meta.env.VITE_APP_API_PATH}/${images[0]?.url}`}
+          src={images[0]?.url}
           alt={productName}
           className={styles.image}
         />
@@ -39,7 +37,6 @@ const ProductCard: FC<ProductCardProps> = ({
         price={productPrice}
         sizes={sizes}
         quantity={Number(quantity)}
-        vendorCode={vendorCode}
       />
     </div>
   );

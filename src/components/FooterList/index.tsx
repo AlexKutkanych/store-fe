@@ -1,6 +1,5 @@
-import React, { useCallback, useState } from 'react';
-
-import Accordion from '@/components/AccordionFooter/Accordion';
+import { useCallback, useState, JSX } from 'react';
+import Accordion from '../../components/AccordionFooter/Accordion';
 import { menuName, listContent } from '../Footer/footerData';
 import styles from './index.module.scss';
 import { MenuItem, MenuList } from '../../types/types';
@@ -31,13 +30,11 @@ const FooterList = ({ className }: { className: string }): JSX.Element => {
                 : styles.list
             }
           >
-            {listContent[contentName]?.map(
-              ({ id, href, label }: MenuItem) => (
-                <a href={href} className={styles.link} key={id}>
-                  {label}
-                </a>
-              )
-            )}
+            {listContent[contentName]?.map(({ id, href, label }: MenuItem) => (
+              <a href={href} className={styles.link} key={id}>
+                {label}
+              </a>
+            ))}
           </nav>
         </div>
       ))}

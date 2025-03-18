@@ -1,5 +1,7 @@
-import React, { FC } from 'react';
+import  { FC } from 'react';
+// @ts-expect-error assets
 import PlusImg from '/public/icons/Plus';
+// @ts-expect-error assets
 import MinusImg from '/public/icons/Minus';
 import styles from './Accordion.module.scss';
 

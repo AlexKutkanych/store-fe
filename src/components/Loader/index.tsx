@@ -1,4 +1,4 @@
-import React from 'react';
+import { JSX } from 'react';
 import styles from './index.module.scss';
 
 const LoaderItem = (): JSX.Element => (

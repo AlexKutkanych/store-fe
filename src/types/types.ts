@@ -68,22 +68,20 @@ export interface ImageItemProps {
 }
 
 export type ProductProps = {
-  id: string;
-  vendorCode: string;
+  _id: string;
   category: string;
   subcategory: string;
   title: string;
   color: string;
   description: string;
   composition: string;
-  size: (keyof Size)[];
+  size: Size[];
   price: number;
   brand: string;
-  collection: string | null;
   manufacturer: string;
   createdAt: string;
   updatedAt: string;
-  images: string[];
+  images: ImageItemProps[];
   distribution: {
     [key in Size]: number;
   };

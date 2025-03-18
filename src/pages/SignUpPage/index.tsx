@@ -1,5 +1,5 @@
-import React from 'react';
-import MainLayout from '@/components/MainLayout';
+import { JSX } from 'react';
+import MainLayout from '../../components/MainLayout';
 import SignUpForm from '../../sections/SignUpForm';
 
 const SignUpPage = (): JSX.Element => {

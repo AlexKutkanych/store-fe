@@ -1,8 +1,8 @@
-import React, { FC, InputHTMLAttributes } from 'react';
+import { FC, InputHTMLAttributes, JSX } from 'react';
 import styles from './index.module.scss';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  Icon?: string;
+  Icon?: JSX.Element;
   errorText?: string;
   label?: string;
   labelCheckbox?: string;

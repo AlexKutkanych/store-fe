@@ -1,6 +1,6 @@
-import React, { FC, useCallback } from 'react';
-import { Size } from '@/types/types';
-import {getValidClassNames} from '@/helpers/getValidClassNames';
+import { FC, useCallback, JSX } from 'react';
+import { Size } from '../../types/types';
+import { getValidClassNames } from '../../helpers/getValidClassNames';
 import styles from './index.module.scss';
 
 export interface SizeSelectorProps {
@@ -20,7 +20,7 @@ const SizeSelector: FC<SizeSelectorProps> = ({
   isProductDetails,
   isFilter,
 }): JSX.Element => {
-  const displaySizes = (parameters || sizes) ?? [];
+  const displaySizes = parameters || sizes;
 
   const isActiveStyles = isProductDetails
     ? styles.activeProductDetails
@@ -55,7 +55,7 @@ const SizeSelector: FC<SizeSelectorProps> = ({
           onClick={() => handleClick(size)}
           disabled={sizes && !sizes.includes(size)}
         >
-          <p className={styles.text}>{size}</p>
+          <p className={styles.text}>{String(size)}</p>
         </button>
       ))}
     </div>

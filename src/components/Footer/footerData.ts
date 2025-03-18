@@ -1,4 +1,4 @@
-import { MenuContent, MenuList } from '@/types/types';
+import { MenuContent, MenuList } from '../../types/types';
 
 export const menuName: MenuList[] = [
   { id: 0, listNumber: 0, contentName: 'help', label: 'Help' },

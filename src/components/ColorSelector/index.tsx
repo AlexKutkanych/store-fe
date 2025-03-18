@@ -1,6 +1,6 @@
-import React, { FC, useCallback } from 'react';
-import {getValidClassNames} from '@/helpers/getValidClassNames';
-import { Color } from '@/types/types';
+import { FC, useCallback, JSX } from 'react';
+import { getValidClassNames } from '../../helpers/getValidClassNames';
+import { Color } from '../../types/types';
 import styles from './index.module.scss';
 
 interface ColorSelectorProps {

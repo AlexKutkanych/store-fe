@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import  { FC } from 'react';
+// @ts-expect-error assets
 import ShoppingBag from '/public/icons/ShoppingBag';
 import styles from './insex.module.scss';
 

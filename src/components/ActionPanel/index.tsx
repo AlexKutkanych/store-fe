@@ -1,6 +1,8 @@
-import { useMemo } from 'react';
+import { useMemo, JSX } from 'react';
 import { Link } from 'react-router';
+// @ts-expect-error assets
 import User from '/public/icons/User';
+// @ts-expect-error assets
 import Search from '/public/icons/Search';
 import AddToCartButton from '../AddToCartButton';
 import styles from './index.module.scss';

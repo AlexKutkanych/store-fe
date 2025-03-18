@@ -1,7 +1,7 @@
-import React, { FC, useCallback, useState } from 'react';
+import { FC, useCallback, useState } from 'react';
 
 import ToggleProductInfoParameters from '../ToggleProductInfoParameters';
-import { Color, Size } from '@/types/types';
+import { Color, Size } from '../../types/types';
 import styles from './index.module.scss';
 
 interface ProductInfoParameters {
@@ -15,7 +15,7 @@ const ProductInfoParameters: FC<ProductInfoParameters> = ({
   sizes,
   error,
 }) => {
-  const [activeSize, setActiveSize] = useState<Size | undefined>();
+  const [activeSize, setActiveSize] = useState<Size>();
   const [activeColor, setActiveColor] = useState<Color>(Color.Black);
   const [open, setOpen] = useState<boolean[]>([false, false]);
 

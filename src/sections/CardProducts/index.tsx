@@ -1,6 +1,6 @@
-import React, { JSX } from 'react';
+import { JSX } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import ProductCardsList from '@/components/ProductCardsList';
+import ProductCardsList from '../../components/ProductCardsList';
 import { getNewProducts } from '../../api/product';
 
 const CardProducts = (): JSX.Element => {

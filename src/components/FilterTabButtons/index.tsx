@@ -1,11 +1,11 @@
-import React, { FC, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 import { filterButtons } from './data';
-import { BodySearchProducts } from '@/types/types';
 import styles from './index.module.scss';
+import { Category, Subcategory } from '../../types/types';
 
 interface FilterTabButtons {
   activeButton?: string;
-  handleClick?: (body: BodySearchProducts) => void;
+  handleClick?: (body: Category | Subcategory) => void;
   setActiveButton?: (value: string) => void;
   handleClickFilter?: (name: string) => void;
 }
@@ -18,7 +18,7 @@ const FilterTabButtons: FC<FilterTabButtons> = ({
 }) => {
   const onClick = useCallback(
     (value: string) => () => {
-      handleClick?.(value);
+      handleClick?.(value as Category | Subcategory);
       handleClickFilter?.(value);
       setActiveButton?.(value);
     },

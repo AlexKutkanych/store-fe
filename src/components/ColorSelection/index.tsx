@@ -1,7 +1,8 @@
-import React, { FC, useCallback } from 'react';
-import { Color } from '@/types/types';
-import useGetViewportWidth from '@/hooks/useGetViewportWidth';
-import { ViewportWidth } from '@/utils/constants';
+import { FC, useCallback, JSX } from 'react';
+import { Color } from '../../types/types';
+import useGetViewportWidth from '../../hooks/useGetViewportWidth';
+import { ViewportWidth } from '../../utils/constants';
+// @ts-expect-error assets
 import Check from '/icons/Check';
 import styles from './index.module.scss';
 

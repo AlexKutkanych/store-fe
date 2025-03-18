@@ -1,9 +1,15 @@
-import React, { JSX } from 'react';
+import  { JSX } from 'react';
+// @ts-expect-error assets
 import InstagramImg from '/public/icons/Instagram';
+// @ts-expect-error assets
 import FacebookImg from '/public/icons/Facebook';
+// @ts-expect-error assets
 import TwitterImg from '/public/icons/Twitter';
+// @ts-expect-error assets
 import PinterestImg from '/public/icons/Pinterest';
+// @ts-expect-error assets
 import EarthIcon from '/public/icons/Earth';
+// @ts-expect-error assets
 import PhoneIcon from '/public/icons/Phone';
 import styles from './index.module.scss';
 

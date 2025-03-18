@@ -1,22 +1,22 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import ProductsGrid from '@/sections/ProductsGrid';
-import Loader from '@/components/Loader';
-import { ViewportWidth } from '@/utils/constants';
-import { Category } from '@/types/types';
-import MainLayout from '@/components/MainLayout';
-import FilterTabButtons from '@/components/FilterTabButtons';
-import { filterButtons } from '@/components/FilterTabButtons/data';
-import useGetViewportWidth from '@/hooks/useGetViewportWidth';
+import { useEffect, useState, useCallback, JSX } from 'react';
+import { useMutation } from '@tanstack/react-query';
+import ProductsGrid from '../../sections/ProductsGrid';
+import Loader from '../../components/Loader';
+import { ViewportWidth } from '../../utils/constants';
+import { Category, ProductProps } from '../../types/types';
+import MainLayout from '../../components/MainLayout';
+import FilterTabButtons from '../../components/FilterTabButtons';
+import { filterButtons } from '../../components/FilterTabButtons/data';
+import useGetViewportWidth from '../../hooks/useGetViewportWidth';
 import styles from './index.module.scss';
 import ActionPanel from '../../components/ActionPanel';
 import { searchProducts } from '../../api/product';
-import { useMutation } from '@tanstack/react-query';
 import { SearchProductBodyProps } from '../../api/types';
 import { Subcategory } from '../../types/types';
 
 const ProductsGridPage = (): JSX.Element => {
   const searchProductsMutation = useMutation<
-    unknown,
+    ProductProps[],
     Error,
     SearchProductBodyProps
   >({

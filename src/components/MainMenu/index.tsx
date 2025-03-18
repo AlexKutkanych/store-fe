@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { mainMenu } from '@/components/Header/menu-data';
-import useGetViewportWidth from '@/hooks/useGetViewportWidth';
-import { ViewportWidth } from '@/utils/constants';
+import { mainMenu } from '../Header/menu-data';
+import useGetViewportWidth from '../../hooks/useGetViewportWidth';
+import { ViewportWidth } from '../../utils/constants';
 import styles from './index.module.scss';
-import { MenuItem } from '@/types/types';
+import { MenuItem } from '../../types/types';
 
 const MainMenu = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>();

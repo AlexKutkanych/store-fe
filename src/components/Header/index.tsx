@@ -1,11 +1,14 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState, JSX } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import MainMenu from '../MainMenu';
 import ActionPanel from '../ActionPanel';
-import Input from '@/components/Input';
+import Input from '../../components/Input';
 import logo from '/icons/logo.svg';
+// @ts-expect-error assets
 import Search from '/public/icons/Search';
+// @ts-expect-error assets
 import MenuIcon from '/public/icons/Menu';
+// @ts-expect-error assets
 import CrossIcon from '/public/icons/Cross';
 import styles from './index.module.scss';
 

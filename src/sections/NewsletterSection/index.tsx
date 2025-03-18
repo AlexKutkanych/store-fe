@@ -1,7 +1,8 @@
-import React from 'react';
-import NewsletterDescription from '@/components/NewsletterDescription';
-import Input from '@/components/Input';
+import NewsletterDescription from '../../components/NewsletterDescription';
+import Input from '../../components/Input';
+// @ts-expect-error assets
 import ArrowButton from '/public/icons/ArrowButton';
+// @ts-expect-error assets
 import Email from '/public/icons/Email';
 import styles from './index.module.scss';
 
