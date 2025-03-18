@@ -1,4 +1,4 @@
-import { Category, Subcategory } from '../types/types';
+import { Category, Color, Size, Subcategory } from '../types/types';
 
 export type CreateUserBodyProps = {
   phone: string;
@@ -25,3 +25,31 @@ export type CreateUserResponseProps = {
   user: User;
   hasToken: boolean;
 };
+
+export type AddToCartBodyProps = {
+  productId: string;
+  color: Color;
+  size: Size;
+  quantity: number;
+};
+
+type CartItem = {
+  productId: string;
+  quantity: number;
+  color: string;
+  size: string;
+  _id: string;
+};
+
+type Cart = {
+  _id: string;
+  userId: string;
+  products: CartItem[];
+  totalPrice: number;
+  __v: number;
+};
+
+export type AddToCartResponseProps = {
+  cart: Cart;
+  message: string;
+}

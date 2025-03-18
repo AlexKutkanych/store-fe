@@ -1,4 +1,4 @@
-import React from 'react';
+import { useMemo } from 'react';
 import { Link } from 'react-router';
 import User from '/public/icons/User';
 import Search from '/public/icons/Search';
@@ -6,7 +6,14 @@ import AddToCartButton from '../AddToCartButton';
 import styles from './index.module.scss';
 
 const ActionPanel = (): JSX.Element => {
-  const quantity = 0;
+  const quantity = useMemo(() => {
+    const item = localStorage.getItem('cart');
+    if (item) {
+      const cart = JSON.parse(item);
+      return cart?.products?.length;
+    }
+    return 0;
+  }, [])
 
   return (
     <>

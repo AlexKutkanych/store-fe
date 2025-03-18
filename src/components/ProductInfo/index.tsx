@@ -4,6 +4,10 @@ import AddToCartButton from '../AddToCartButton';
 import ProductPrice from '../ProductPrice';
 import { Size, Color } from '@/types/types';
 import styles from './index.module.scss';
+import { useMutation } from '@tanstack/react-query';
+import { Slide, toast, ToastContainer } from 'react-toastify';
+import { AddToCartBodyProps, AddToCartResponseProps } from '../../api/types';
+import { addToCart } from '../../api/cart';
 
 interface ProductInfo {
   productId: string;
@@ -20,13 +24,35 @@ const ProductInfo: FC<ProductInfo> = ({
   productName,
   sizes,
   quantity,
-  vendorCode = 0,
 }): JSX.Element => {
   const [selectedColor, setSelectedColor] = useState<Color>(Color.Black);
   const [selectedSize, setSelectedSize] = useState<Size | null>(null);
   const [error, setError] = useState<string | undefined>();
-  // const existingProductQuantity =
-  //   useAppSelector((state) => selectQuantityByProductId(state, productId)) ?? 0;
+
+  const handleSuccessAddToCart = (data: AddToCartResponseProps) => {
+    toast(data?.message, {
+      position: 'top-center',
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'light',
+      transition: Slide,
+    });
+
+    localStorage.setItem('cart', JSON.stringify(data?.cart));
+  };
+
+  const addToCartMutation = useMutation<
+    AddToCartResponseProps,
+    Error,
+    AddToCartBodyProps
+  >({
+    mutationFn: addToCart,
+    onSuccess: handleSuccessAddToCart,
+  });
 
   const existingProductQuantity = 0;
 
@@ -60,26 +86,11 @@ const ProductInfo: FC<ProductInfo> = ({
 
     setError('');
 
-    // dispatch(
-    //   shoppingCartActions.addItem({
-    //     id: productId,
-    //     price,
-    //     title: productName,
-    //     vendorCode,
-    //     colour: selectedColor,
-    //     size: selectedSize,
-    //     count: quantity,
-    //   })
-    // );
-
-    console.log('product:', {
-      id: productId,
-      price,
-      title: productName,
-      vendorCode,
-      colour: selectedColor,
+    addToCartMutation.mutate({
+      productId,
+      color: selectedColor,
       size: selectedSize,
-      count: quantity,
+      quantity: 1,
     });
   };
 
@@ -99,6 +110,7 @@ const ProductInfo: FC<ProductInfo> = ({
           sizes={sizes}
         />
       </div>
+      <ToastContainer />
     </div>
   );
 };
