@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { Link, NavigateFunction, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import Input from '../../components/Input';
 import { createUser } from '../../api/auth';
 import styles from './index.module.scss';
 import { CreateUserBodyProps, CreateUserResponseProps } from '../../api/types';
 import { useAuthErrorHandler } from '../../hooks/useAuthErrorHandler';
+import { useAppContext } from '../../context/AppContext';
 
 const SignUpForm = () => {
   const [emailError, setEmailError] = useState(false);
@@ -18,17 +19,16 @@ const SignUpForm = () => {
 
   const navigate = useNavigate();
 
+  const { handleSuccessLogin } = useAppContext();
   const { errorMessage, authErrorHandler } = useAuthErrorHandler();
 
-  const handleSuccessSignUp = (navigate: NavigateFunction) => (data: CreateUserResponseProps) => {
-    navigate('/');
-
-    localStorage.setItem('user', JSON.stringify(data?.user));
-  };
-
-  const mutation = useMutation<CreateUserResponseProps, Error, CreateUserBodyProps>({
+  const mutation = useMutation<
+    CreateUserResponseProps,
+    Error,
+    CreateUserBodyProps
+  >({
     mutationFn: createUser,
-    onSuccess: handleSuccessSignUp(navigate),
+    onSuccess: handleSuccessLogin(navigate),
     onError: authErrorHandler,
   });
 
@@ -69,7 +69,10 @@ const SignUpForm = () => {
     return isValid;
   };
 
-  const handleSubmit = (event: { preventDefault: () => void; currentTarget?: HTMLFormElement; }) => {
+  const handleSubmit = (event: {
+    preventDefault: () => void;
+    currentTarget?: HTMLFormElement;
+  }) => {
     event.preventDefault();
     if (phoneError || emailError || passwordError) {
       return;
@@ -90,7 +93,9 @@ const SignUpForm = () => {
       <form className={styles.signUpForm} onSubmit={handleSubmit}>
         <h2 className={styles.title}>Create your account</h2>
         {errorMessage ? (
-          <p className={styles.errorMessage} id="sign-up-error">{errorMessage}</p>
+          <p className={styles.errorMessage} id='sign-up-error'>
+            {errorMessage}
+          </p>
         ) : null}
         <Input
           id='email'
@@ -122,7 +127,7 @@ const SignUpForm = () => {
               type='checkbox'
               checked={acceptOffers}
               onChange={(e) => setAcceptOffers(e?.target.checked)}
-              name="acceptOffers"
+              name='acceptOffers'
             />
             <span className={styles.checkboxText}>
               I would like personalised offers, news and the latest trends

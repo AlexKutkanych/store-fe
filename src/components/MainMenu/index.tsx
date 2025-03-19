@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { mainMenu } from '../Header/menu-data';
 import useGetViewportWidth from '../../hooks/useGetViewportWidth';
-import { ViewportWidth } from '../../utils/constants';
+import { ViewportWidth } from '../../constants/constants';
 import styles from './index.module.scss';
 import { MenuItem } from '../../types/types';
 

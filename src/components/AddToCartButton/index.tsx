@@ -13,7 +13,7 @@ interface AddToCartButtonProps {
 const AddToCartButton: FC<AddToCartButtonProps> = ({
   quantity = 0,
   isDisabled,
-  id,
+  id = '',
   onClick,
 }) => (
   <button className={styles.button} disabled={isDisabled} onClick={onClick} data-testid={`${id}-add-to-cart`}>

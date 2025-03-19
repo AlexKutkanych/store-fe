@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { Link, NavigateFunction, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import Input from '../../components/Input';
 import { loginUser } from '../../api/auth';
 import styles from './index.module.scss';
 import { CreateUserResponseProps, SignInUserBodyProps } from '../../api/types';
 import { useAuthErrorHandler } from '../../hooks/useAuthErrorHandler';
+import { useAppContext } from '../../context/AppContext';
 
 const SignInForm = () => {
   const [emailError, setEmailError] = useState(false);
@@ -15,14 +16,8 @@ const SignInForm = () => {
 
   const navigate = useNavigate();
 
+  const { handleSuccessLogin } = useAppContext();
   const { errorMessage, authErrorHandler } = useAuthErrorHandler();
-
-  const handleSuccessSignIn =
-    (navigate: NavigateFunction) => (data: CreateUserResponseProps) => {
-      navigate('/');
-
-      localStorage.setItem('user', JSON.stringify(data?.user));
-    };
 
   const mutation = useMutation<
     CreateUserResponseProps,
@@ -30,7 +25,7 @@ const SignInForm = () => {
     SignInUserBodyProps
   >({
     mutationFn: loginUser,
-    onSuccess: handleSuccessSignIn(navigate),
+    onSuccess: handleSuccessLogin(navigate),
     onError: authErrorHandler,
   });
 

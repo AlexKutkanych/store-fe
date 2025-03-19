@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback, JSX } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import ProductsGrid from '../../sections/ProductsGrid';
 import Loader from '../../components/Loader';
-import { ViewportWidth } from '../../utils/constants';
+import { ViewportWidth } from '../../constants/constants';
 import { Category, ProductProps } from '../../types/types';
 import MainLayout from '../../components/MainLayout';
 import FilterTabButtons from '../../components/FilterTabButtons';

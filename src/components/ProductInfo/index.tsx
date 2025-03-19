@@ -1,13 +1,14 @@
 import { useState, FC, JSX } from 'react';
 import { AxiosError } from 'axios';
 import { useMutation } from '@tanstack/react-query';
-import { Slide, toast, ToastContainer } from 'react-toastify';
 import ProductInfoParameters from '../ProductInfoParameters';
 import AddToCartButton from '../AddToCartButton';
 import ProductPrice from '../ProductPrice';
+import { useAppContext } from '../../context/AppContext';
 import { Size, Color } from '../../types/types';
 import { AddToCartBodyProps, AddToCartResponseProps } from '../../api/types';
 import { addToCart } from '../../api/cart';
+import { invokeCustomToast } from '../../utils/customToast';
 import styles from './index.module.scss';
 
 interface ProductInfo {
@@ -29,35 +30,17 @@ const ProductInfo: FC<ProductInfo> = ({
   const [selectedSize, setSelectedSize] = useState<Size | null>(null);
   const [error, setError] = useState<string | undefined>();
 
-  const handleSuccessAddToCart = (data: AddToCartResponseProps) => {
-    toast(data?.message, {
-      position: 'top-center',
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: 'light',
-      transition: Slide,
-    });
+  const { updateCart } = useAppContext();
 
-    localStorage.setItem('cart', JSON.stringify(data?.cart));
+  const handleSuccessAddToCart = (data: AddToCartResponseProps) => {
+    invokeCustomToast(data?.message);
+
+    updateCart(data?.cart);
   };
 
   const handleErrorAddToCart = (error: Error) => {
     if ((error as AxiosError).isAxiosError) {
-      toast('Error adding to cart', {
-        position: 'top-center',
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light',
-        transition: Slide,
-      });
+      invokeCustomToast('Error adding to cart');
     }
   };
 
@@ -127,7 +110,6 @@ const ProductInfo: FC<ProductInfo> = ({
           sizes={sizes}
         />
       </div>
-      <ToastContainer />
     </div>
   );
 };

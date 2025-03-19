@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import useGetViewportWidth from '../../hooks/useGetViewportWidth';
-import { ViewportWidth } from '../../utils/constants';
+import { ViewportWidth } from '../../constants/constants';
 import styles from './index.module.scss';
 import { ProductProps } from '../../types/types';
 import ProductCard from '../ProductCard';

@@ -17,7 +17,7 @@ export type SearchProductBodyProps = {
   subcategory?: Subcategory;
 };
 
-type User = {
+export type User = {
   phone: string;
   email: string;
   _id: string;
@@ -46,7 +46,7 @@ type CartItem = {
   _id: string;
 };
 
-type Cart = {
+export type Cart = {
   _id: string;
   userId: string;
   products: CartItem[];
@@ -57,4 +57,4 @@ type Cart = {
 export type AddToCartResponseProps = {
   cart: Cart;
   message: string;
-}
+};
