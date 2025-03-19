@@ -8,7 +8,7 @@ interface ProductPriceProps {
 
 const ProductPrice: FC<ProductPriceProps> = ({ price }): JSX.Element => (
   <div className={styles.productPrice}>
-    <p>${price}</p>
+    <p>${price.toFixed(2)}</p>
   </div>
 );
 

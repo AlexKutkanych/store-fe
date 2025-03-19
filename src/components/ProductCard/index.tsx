@@ -20,26 +20,19 @@ const ProductCard: FC<ProductCardProps> = ({
   sizes,
   images,
   quantity,
-}): JSX.Element => {
-  const productPrice = price ? Number.parseFloat(String(price)) : undefined;
-  return (
-    <div className={styles.productCard} data-testid={`product-card-${productId}`}>
-      <Link to={`/product/${productId}`}>
-        <img
-          src={images[0]?.url}
-          alt={productName}
-          className={styles.image}
-        />
-      </Link>
-      <ProductInfo
-        productId={productId}
-        productName={productName}
-        price={productPrice}
-        sizes={sizes}
-        quantity={Number(quantity)}
-      />
-    </div>
-  );
-};
+}): JSX.Element => (
+  <div className={styles.productCard} data-testid={`product-card-${productId}`}>
+    <Link to={`/product/${productId}`}>
+      <img src={images[0]?.url} alt={productName} className={styles.image} />
+    </Link>
+    <ProductInfo
+      productId={productId}
+      productName={productName}
+      price={price}
+      sizes={sizes}
+      quantity={Number(quantity)}
+    />
+  </div>
+);
 
 export default ProductCard;

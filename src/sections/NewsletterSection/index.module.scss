@@ -50,7 +50,6 @@
 }
 
 .inputText {
-  width: 362px;
   height: 48px;
   padding-left: 56px;
   cursor: pointer;
@@ -78,11 +77,11 @@
 .wrapperItem {
   display: flex;
   justify-content: flex-end;
-  width: 100%;
-
-  & > div > input {
-    @include media(laptop) {
-      width: 300px;
+  
+  & > div input {
+    min-width: 300px;
+    @include laptopOnly {
+      min-width: 200px;
     }
   }
 }

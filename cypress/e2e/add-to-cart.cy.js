@@ -40,7 +40,6 @@ describe('Add to Cart Feature', () => {
     productCard
       .within(() => {
         const sizeToggler = cy.get('[data-testid="size-toggler"] > button');
-        console.log(sizeToggler, 'prd');
         sizeToggler.click();
 
         const sizeSelector = cy.get('[data-testid="size-selector"]');

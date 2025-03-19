@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, Mock } from 'vitest';
 import ProductInfo from './index';
 import { Size, Color } from '../../types/types';
 import { useAppContext } from '../../context/AppContext';
@@ -33,14 +33,14 @@ describe('ProductInfo', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    (useAppContext as vi.Mock).mockReturnValue({ updateCart: mockUpdateCart });
-    (useMutation as vi.Mock).mockReturnValue({ mutate: mockMutate });
+    (useAppContext as Mock).mockReturnValue({ updateCart: mockUpdateCart });
+    (useMutation as Mock).mockReturnValue({ mutate: mockMutate });
   });
 
   it('renders the product name and price', () => {
     render(<ProductInfo {...defaultProps} />);
     expect(screen.getByText('Test Product')).toBeInTheDocument();
-    expect(screen.getByText('$100')).toBeInTheDocument();
+    expect(screen.getByText('$100.00')).toBeInTheDocument();
   });
 
   it('shows an error message when no size is selected', () => {
@@ -63,7 +63,7 @@ describe('ProductInfo', () => {
 
   it('calls updateCart and invokeCustomToast on successful add to cart', () => {
     const mockData = { message: 'Added to cart', cart: {} };
-    (useMutation as vi.Mock).mockReturnValue({
+    (useMutation as Mock).mockReturnValue({
       mutate: mockMutate,
       onSuccess: ({ message, cart }: AddToCartResponseProps) => {
         invokeCustomToast(message);
@@ -82,7 +82,7 @@ describe('ProductInfo', () => {
 
   it('calls invokeCustomToast on error', () => {
     const mockError = new Error('Error adding to cart');
-    (useMutation as vi.Mock).mockReturnValue({
+    (useMutation as Mock).mockReturnValue({
       mutate: mockMutate,
       onError: () => {
         invokeCustomToast('Error adding to cart');

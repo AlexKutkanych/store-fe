@@ -7,19 +7,16 @@ interface FilterTabButtons {
   activeButton?: string;
   handleClick?: (body: Category | Subcategory) => void;
   setActiveButton?: (value: string) => void;
-  handleClickFilter?: (name: string) => void;
 }
 
 const FilterTabButtons: FC<FilterTabButtons> = ({
   activeButton,
   handleClick,
   setActiveButton,
-  handleClickFilter,
 }) => {
   const onClick = useCallback(
     (value: string) => () => {
       handleClick?.(value as Category | Subcategory);
-      handleClickFilter?.(value);
       setActiveButton?.(value);
     },
     []
@@ -27,18 +24,16 @@ const FilterTabButtons: FC<FilterTabButtons> = ({
 
   return (
     <div className={styles.buttonsWrapper}>
-      {filterButtons?.map(({ name, value }) => {
-        return (
-          <button
-            key={value}
-            value={value}
-            className={value === activeButton ? styles.active : styles.button}
-            onClick={onClick(value)}
-          >
-            {name}
-          </button>
-        );
-      })}
+      {filterButtons?.map(({ name, value }) => (
+        <button
+          key={value}
+          value={value}
+          className={value === activeButton ? styles.active : styles.button}
+          onClick={onClick(value)}
+        >
+          {name}
+        </button>
+      ))}
     </div>
   );
 };

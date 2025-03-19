@@ -53,7 +53,7 @@ describe('SignInForm', () => {
   });
 
   it('calls the mutation function with correct data', async () => {
-    const mockCreateUser = loginUser as jest.Mock;
+    const mockLoginUser = loginUser as jest.Mock;
 
     renderWithProviders(<SignInForm />);
 
@@ -67,16 +67,16 @@ describe('SignInForm', () => {
     fireEvent.click(screen.getByText(/Sign in/i));
 
     await waitFor(() => {
-      expect(mockCreateUser).toHaveBeenCalledWith({
+      expect(mockLoginUser).toHaveBeenCalledWith({
         email: 'test@example.com',
         password: 'password123',
       });
     });
   });
 
-  it('handles successful sign-in', async () => {
-    const mockCreateUser = loginUser as jest.Mock;
-    mockCreateUser.mockResolvedValueOnce({
+  it('handles successful sign in', async () => {
+    const mockLoginUser = loginUser as jest.Mock;
+    mockLoginUser.mockResolvedValueOnce({
       user: { id: 1, email: 'test@example.com' },
     });
 
@@ -92,7 +92,7 @@ describe('SignInForm', () => {
     fireEvent.click(screen.getByText(/Sign in/i));
 
     await waitFor(() => {
-      expect(mockCreateUser).toHaveBeenCalledWith({
+      expect(mockLoginUser).toHaveBeenCalledWith({
         email: 'test@example.com',
         password: 'password123',
       });
