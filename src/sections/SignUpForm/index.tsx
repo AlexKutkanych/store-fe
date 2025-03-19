@@ -90,7 +90,7 @@ const SignUpForm = () => {
       <form className={styles.signUpForm} onSubmit={handleSubmit}>
         <h2 className={styles.title}>Create your account</h2>
         {errorMessage ? (
-          <p className={styles.errorMessage}>{errorMessage}</p>
+          <p className={styles.errorMessage} id="sign-up-error">{errorMessage}</p>
         ) : null}
         <Input
           id='email'
@@ -98,12 +98,14 @@ const SignUpForm = () => {
           type='email'
           placeholder='Email'
           errorText={emailErrorMessage}
+          testPrefix='sign-up'
         />
         <Input
           id='phone'
           name='phone'
           placeholder='Phone'
           errorText={phoneErrorMessage}
+          testPrefix='sign-up'
         />
         <Input
           id='password'
@@ -111,6 +113,7 @@ const SignUpForm = () => {
           type='password'
           placeholder='Password'
           errorText={passwordErrorMessage}
+          testPrefix='sign-up'
         />
         <div className={styles.helpOptions}>
           <label>
@@ -119,6 +122,7 @@ const SignUpForm = () => {
               type='checkbox'
               checked={acceptOffers}
               onChange={(e) => setAcceptOffers(e?.target.checked)}
+              name="acceptOffers"
             />
             <span className={styles.checkboxText}>
               I would like personalised offers, news and the latest trends

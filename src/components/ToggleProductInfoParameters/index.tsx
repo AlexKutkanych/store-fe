@@ -43,7 +43,7 @@ const ToggleProductInfoParameters: FC<ToggleProductInfoParameters> = ({
   const handleOpenCloseParameters = useCallback(() => toggle(index), []);
 
   return (
-    <div className={styles.toggleParameter}>
+    <div className={styles.toggleParameter} data-testid={`${productInfo}-toggler`}>
       <button
         onClick={handleOpenCloseParameters}
         className={parametersClassName}

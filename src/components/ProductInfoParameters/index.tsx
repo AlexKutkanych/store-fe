@@ -48,7 +48,7 @@ const ProductInfoParameters: FC<ProductInfoParameters> = ({
 
   return (
     <div className={styles.parameters}>
-      {error ? <p className={styles.error}>{error}</p> : null}
+      {error ? <p className={styles.error} data-testid='product-parameter-error'>{error}</p> : null}
       {colors?.length ? (
         <ToggleProductInfoParameters
           parameters={colors}

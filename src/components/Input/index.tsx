@@ -6,6 +6,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   errorText?: string;
   label?: string;
   labelCheckbox?: string;
+  testPrefix?: string
 }
 
 const Input: FC<InputProps> = ({
@@ -14,6 +15,8 @@ const Input: FC<InputProps> = ({
   errorText,
   label,
   onChange,
+  id,
+  testPrefix,
   ...rest
 }) => {
   const errorKey = !!errorText;
@@ -23,6 +26,7 @@ const Input: FC<InputProps> = ({
       className={`${styles.inputWrapper} ${
         errorKey ? styles.inputWrapperError : ''
       }`}
+      data-testid={`${testPrefix ? `${testPrefix}-` : ''}${id}`}
     >
       {Icon ? <span className={styles.icon}>{Icon}</span> : null}
       <div className={styles.inputBox}>
@@ -30,12 +34,13 @@ const Input: FC<InputProps> = ({
           placeholder={placeholder}
           className={styles.input}
           onChange={onChange}
+          id={id}
           {...rest}
         />
         {label ? <label className={styles.inputLabel}>{label}</label> : null}
       </div>
       {errorText ? (
-        <label className={styles.inputError}>{errorText}</label>
+        <span className={styles.inputError}>{errorText}</span>
       ) : null}
     </div>
   );

@@ -98,7 +98,7 @@ const ProductInfo: FC<ProductInfo> = ({
       <div className={styles.nameBox}>
         <span className={styles.productName}>{productName}</span>
         <div className={styles.shoppingCartWrapper}>
-          <AddToCartButton onClick={addToShoppingCart} />
+          <AddToCartButton id="product-card" onClick={addToShoppingCart} />
         </div>
       </div>
       {price ? <ProductPrice price={price} /> : null}

@@ -47,6 +47,7 @@ const SizeSelector: FC<SizeSelectorProps> = ({
       className={
         isProductDetails ? styles.btnBlockProductDetails : styles.btnBlock
       }
+      data-testid='size-selector'
     >
       {displaySizes?.map((size, index) => (
         <button

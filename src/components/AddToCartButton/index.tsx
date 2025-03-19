@@ -7,14 +7,16 @@ interface AddToCartButtonProps {
   quantity?: number;
   isDisabled?: boolean;
   onClick?: () => void;
+  id?: string;
 }
 
 const AddToCartButton: FC<AddToCartButtonProps> = ({
   quantity = 0,
   isDisabled,
+  id,
   onClick,
 }) => (
-  <button className={styles.button} disabled={isDisabled} onClick={onClick}>
+  <button className={styles.button} disabled={isDisabled} onClick={onClick} data-testid={`${id}-add-to-cart`}>
     <ShoppingBag className={styles.shoppingBagIcon} />
     {quantity > 0 ? <div className={styles.quantity}>{quantity}</div> : null}
   </button>

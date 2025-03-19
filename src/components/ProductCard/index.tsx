@@ -23,7 +23,7 @@ const ProductCard: FC<ProductCardProps> = ({
 }): JSX.Element => {
   const productPrice = price ? Number.parseFloat(String(price)) : undefined;
   return (
-    <div className={styles.productCard}>
+    <div className={styles.productCard} data-testid={`product-card-${productId}`}>
       <Link to={`/product/${productId}`}>
         <img
           src={images[0]?.url}
