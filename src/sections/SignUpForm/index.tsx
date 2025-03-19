@@ -21,7 +21,6 @@ const SignUpForm = () => {
   const { errorMessage, authErrorHandler } = useAuthErrorHandler();
 
   const handleSuccessSignUp = (navigate: NavigateFunction) => (data: CreateUserResponseProps) => {
-    console.log(data, 'data');
     navigate('/');
 
     localStorage.setItem('user', JSON.stringify(data?.user));
@@ -87,7 +86,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-testid='sign-up-form'>
       <form className={styles.signUpForm} onSubmit={handleSubmit}>
         <h2 className={styles.title}>Create your account</h2>
         {errorMessage ? (

@@ -2,7 +2,6 @@ const BASE_URL = `${import.meta.env.VITE_APP_API_PATH}/api/v1`;
 const AUTH_BASE_URL = `${BASE_URL}/auth`;
 const PRODUCT_BASE_URL = `${BASE_URL}/products`;
 const CART_BASE_URL = `${BASE_URL}/cart`;
-const USER_BASE_URL = `${BASE_URL}/user`;
 
 const AUTH_API_ROUTES = {
   SIGN_UP: `${AUTH_BASE_URL}/signup`,
@@ -20,14 +19,8 @@ const CART_API_ROUTES = {
   ADD_TO_CART: `${CART_BASE_URL}/add`,
 };
 
-const USER_API_ROUTES = {
-  GET_USER_TOKEN: `${USER_BASE_URL}/token`,
-  GET_USER_PROFILE: `${USER_BASE_URL}/profile`,
-};
-
 export {
   AUTH_API_ROUTES,
   PRODUCT_API_ROUTES,
   CART_API_ROUTES,
-  USER_API_ROUTES,
 };

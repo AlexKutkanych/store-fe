@@ -47,8 +47,6 @@ const ProductsGridPage = (): JSX.Element => {
     });
   }, []);
 
-  console.log(searchProductsMutation, 'searchProductsMutation');
-
   return (
     <MainLayout isLoading={searchProductsMutation?.isPending}>
       <FilterTabButtons

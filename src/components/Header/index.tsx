@@ -19,7 +19,6 @@ const Header = (): JSX.Element => {
   const isProductsGridPage = /\/(men|women|children)\/products-grid/.test(
     location.pathname
   );
-  console.log(isProductsGridPage);
 
   const isProductsGrid = (gridClass: string, defaultClass: string): string => {
     return isProductsGridPage ? gridClass : defaultClass;

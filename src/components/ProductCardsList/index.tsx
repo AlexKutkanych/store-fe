@@ -16,8 +16,6 @@ const ProductCardsList: FC<ProductsGridShortProps> = ({
 }) => {
   const isMobile = useGetViewportWidth(ViewportWidth.TABLET);
 
-  console.log(searchProducts, 'searchProducts');
-
   return searchProducts?.length > 0 ? (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>{title}</h2>

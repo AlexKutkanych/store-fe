@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 
 const Minus = ({ className }: { className?: string }): JSX.Element => (
   <svg className={className} viewBox="0 0 35 35">

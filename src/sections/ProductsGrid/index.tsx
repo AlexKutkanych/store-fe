@@ -11,7 +11,7 @@ const ProductsGrid: FC<ProductsGridProps> = ({
   products = [] as ProductProps[],
 }): JSX.Element => {
   return (
-    <div className={styles.cardsWrapper}>
+    <div className={styles.cardsWrapper} data-testid='products-grid'>
       {products?.length ? (
         products.map(
           ({ _id, title, price, size, quantity, images = [] }) => {

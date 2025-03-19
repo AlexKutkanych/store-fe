@@ -30,6 +30,7 @@ const ColorSelector: FC<ColorSelectorProps> = ({
         key={parameter + index}
         className={getCombinedClass(parameter)}
         onClick={() => handleClick(parameter)}
+        data-testid={parameter}
       >
         <span
           className={
