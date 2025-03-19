@@ -10,9 +10,9 @@ describe('Sign-Up Feature', () => {
   });
 
   it('can fill out and submit the sign-up form', () => {
-    cy.get('input[name="email"]').type('test@example.com');
-    cy.get('input[name="phone"]').type('1234567890');
-    cy.get('input[name="password"]').type('password123');
+    cy.get('input[name="email"]').type(Cypress.env('email'));
+    cy.get('input[name="phone"]').type(Cypress.env('phone'));
+    cy.get('input[name="password"]').type(Cypress.env('password'));
     cy.get('input[name="acceptOffers"] + span').click();
 
     cy.get('form').submit();
@@ -35,12 +35,17 @@ describe('Sign-Up Feature', () => {
   });
 
   it('shows an error message for an existing email', () => {
-    cy.get('input[name="email"]').type('existing@example.com');
-    cy.get('input[name="phone"]').type('1234567890');
-    cy.get('input[name="password"]').type('password123');
+    cy.get('input[name="email"]').type(Cypress.env('email'));
+    cy.get('input[name="phone"]').type(Cypress.env('phone'));
+    cy.get('input[name="password"]').type(Cypress.env('password'));
 
     cy.get('form').submit();
 
     cy.get('#sign-up-error').should('contain', 'This user already exists!');
+  });
+
+  it('should redirect to sign in page', () => {
+    cy.get('a[data-testid="sign-up-redirect"]').click();
+    cy.url().should('include', '/sign-in');
   });
 });

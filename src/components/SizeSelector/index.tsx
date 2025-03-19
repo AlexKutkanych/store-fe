@@ -55,6 +55,7 @@ const SizeSelector: FC<SizeSelectorProps> = ({
           className={combinedClassName(size)}
           onClick={() => handleClick(size)}
           disabled={sizes && !sizes.includes(size)}
+          data-testid={`size-selector-${size}`}
         >
           <p className={styles.text}>{String(size)}</p>
         </button>

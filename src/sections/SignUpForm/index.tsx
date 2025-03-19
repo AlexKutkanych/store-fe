@@ -139,7 +139,7 @@ const SignUpForm = () => {
         </button>
       </form>
       <p className={styles.haveAccount}>
-        Already have an account? <Link to='/sign-in'>Sign in</Link>
+        Already have an account? <Link to='/sign-in' data-testid="sign-up-redirect">Sign in</Link>
       </p>
     </div>
   );

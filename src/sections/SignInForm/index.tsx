@@ -88,7 +88,7 @@ const SignInForm = () => {
           type='email'
           placeholder='Email'
           errorText={emailErrorMessage}
-          testPrefix='sign-up'
+          testPrefix='sign-in'
         />
         <Input
           id='password'
@@ -96,14 +96,14 @@ const SignInForm = () => {
           type='password'
           placeholder='Password'
           errorText={passwordErrorMessage}
-          testPrefix='sign-up'
+          testPrefix='sign-in'
         />
         <button className={styles.signUpBtn} onClick={validateInputs}>
           Sign in
         </button>
       </form>
       <p className={styles.haveAccount}>
-        Don't have an account? <Link to='/sign-up'>Sign up</Link>
+        Don't have an account? <Link to='/sign-up' data-testid="sign-in-redirect">Sign up</Link>
       </p>
     </div>
   );

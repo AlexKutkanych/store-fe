@@ -1,4 +1,5 @@
 import { defineConfig, UserConfig } from 'vite';
+import { configDefaults } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
@@ -17,5 +18,8 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: './tests/setup.js',
+    coverage: {
+      exclude: [...configDefaults.exclude, '**/mocks/**', '**/public/**'],
+    },
   },
 } as UserConfig);

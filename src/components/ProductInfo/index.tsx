@@ -31,7 +31,6 @@ const ProductInfo: FC<ProductInfo> = ({
   const [error, setError] = useState<string | undefined>();
 
   const { updateCart } = useAppContext();
-
   const handleSuccessAddToCart = (data: AddToCartResponseProps) => {
     invokeCustomToast(data?.message);
 

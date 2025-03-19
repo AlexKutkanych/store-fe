@@ -21,12 +21,8 @@ export enum Category {
 export enum Subcategory {
   JACKETS = 'JACKETS',
   COATS = 'COATS',
-  TRENCH = 'TRENCH',
-  GILETS = 'GILETS',
-  TSHIRT = 'T-SHIRT',
+  OVERSHIRTS = 'OVERSHIRTS',
   SWEATERS = 'SWEATERS',
-  CARDIGANS = 'CARDIGANS',
-  QUILTED = 'QUILTED',
 }
 
 export const clothesColors: Record<Color, string> = {

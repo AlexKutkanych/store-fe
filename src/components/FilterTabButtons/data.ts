@@ -14,4 +14,16 @@ export const filterButtons: ButtonProps[] = [
     name: 'Jackets',
     value: Subcategory.JACKETS,
   },
+  {
+    name: 'Coats',
+    value: Subcategory.COATS,
+  },
+  {
+    name: 'Overshirts',
+    value: Subcategory.OVERSHIRTS,
+  },
+  {
+    name: 'Sweaters',
+    value: Subcategory.SWEATERS,
+  },
 ];
