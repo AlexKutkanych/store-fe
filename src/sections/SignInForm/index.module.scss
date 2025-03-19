@@ -1,0 +1,85 @@
+@import '@/styles/constants';
+
+.wrapper {
+  width: 523px;
+  margin: 100px auto;
+}
+
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.errorMessage {
+  color: $alertRed;
+}
+
+.helpOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.checkboxText {
+  display: flex;
+  align-items: center;
+  user-select: none;
+  font-size: 14px;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid $blackColor;
+    border-radius: 2px;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  input:checked + &::before {
+    background-color: $blackColor;
+    background-image: url('/icons/Check.svg');
+  }
+  input:not(:disabled):active + &::before {
+    background-color: $blackColor;
+  }
+  input:disabled + &::before {
+    background-color: $pageBackground;
+  }
+}
+
+.haveAccount > a {
+  color: $textPrimary;
+  font-weight: 700;
+}
+
+.signUpBtn {
+  display: block;
+  font-family: $font-family-main;
+  color: $brilliance;
+  width: 100%;
+  padding: 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  background-color: $blackColor;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

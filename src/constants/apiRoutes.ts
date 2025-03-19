@@ -5,7 +5,7 @@ const CART_BASE_URL = `${BASE_URL}/cart`;
 
 const AUTH_API_ROUTES = {
   SIGN_UP: `${AUTH_BASE_URL}/signup`,
-  LOGIN: `${AUTH_BASE_URL}/login`,
+  SIGN_IN: `${AUTH_BASE_URL}/login`,
   LOGOUT: `${AUTH_BASE_URL}/logout`,
 };
 

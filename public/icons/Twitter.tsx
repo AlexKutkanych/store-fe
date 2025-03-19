@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { JSX } from 'react';
 
 const Twitter = ({ className }: { className?: string }): JSX.Element => (
   <svg className={className} viewBox="2 2 28 28">

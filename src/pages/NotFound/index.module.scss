@@ -1,0 +1,9 @@
+@import '@/styles/constants';
+
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  margin: 100px 0;
+}

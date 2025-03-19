@@ -3,6 +3,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import HomePage from './HomePage';
 import ProductsGridPage from './ProductsGridPage';
 import SignUpPage from './SignUpPage';
+import SignInPage from './SignInPage';
+import NotFound from './NotFound';
 
 function App() {
   const queryClient = new QueryClient();
@@ -11,7 +13,9 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/sign-up' element={<SignUpPage />} />
+        <Route path='/sign-in' element={<SignInPage />} />
         <Route path='/men/products-grid' element={<ProductsGridPage />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </QueryClientProvider>
   );

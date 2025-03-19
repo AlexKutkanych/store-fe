@@ -1,13 +1,14 @@
 import { useState, FC, JSX } from 'react';
+import { AxiosError } from 'axios';
+import { useMutation } from '@tanstack/react-query';
+import { Slide, toast, ToastContainer } from 'react-toastify';
 import ProductInfoParameters from '../ProductInfoParameters';
 import AddToCartButton from '../AddToCartButton';
 import ProductPrice from '../ProductPrice';
 import { Size, Color } from '../../types/types';
-import styles from './index.module.scss';
-import { useMutation } from '@tanstack/react-query';
-import { Slide, toast, ToastContainer } from 'react-toastify';
 import { AddToCartBodyProps, AddToCartResponseProps } from '../../api/types';
 import { addToCart } from '../../api/cart';
+import styles from './index.module.scss';
 
 interface ProductInfo {
   productId: string;
@@ -44,6 +45,22 @@ const ProductInfo: FC<ProductInfo> = ({
     localStorage.setItem('cart', JSON.stringify(data?.cart));
   };
 
+  const handleErrorAddToCart = (error: Error) => {
+    if ((error as AxiosError).isAxiosError) {
+      toast('Error adding to cart', {
+        position: 'top-center',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+        transition: Slide,
+      });
+    }
+  };
+
   const addToCartMutation = useMutation<
     AddToCartResponseProps,
     Error,
@@ -51,6 +68,7 @@ const ProductInfo: FC<ProductInfo> = ({
   >({
     mutationFn: addToCart,
     onSuccess: handleSuccessAddToCart,
+    onError: handleErrorAddToCart,
   });
 
   const existingProductQuantity = 0;
@@ -98,7 +116,7 @@ const ProductInfo: FC<ProductInfo> = ({
       <div className={styles.nameBox}>
         <span className={styles.productName}>{productName}</span>
         <div className={styles.shoppingCartWrapper}>
-          <AddToCartButton id="product-card" onClick={addToShoppingCart} />
+          <AddToCartButton id='product-card' onClick={addToShoppingCart} />
         </div>
       </div>
       {price ? <ProductPrice price={price} /> : null}

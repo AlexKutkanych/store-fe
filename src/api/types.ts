@@ -7,6 +7,11 @@ export type CreateUserBodyProps = {
   acceptOffers?: boolean;
 };
 
+export type SignInUserBodyProps = {
+  email: string;
+  password: string;
+};
+
 export type SearchProductBodyProps = {
   category: Category;
   subcategory?: Subcategory;
